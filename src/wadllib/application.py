@@ -1167,4 +1167,4 @@ class Application(WADLBase):
             raise WADLError("More than one resource defined with path %s"
                             % path)
         return Resource(
-            self, merge(self.resource_base, path, True), matching[0])
+            self, merge(self.resource_base + '/', path, True), matching[0])
