@@ -570,7 +570,12 @@ class Resource(WADLResolvableDefinition):
         """Iterate over this resource's <method> tags."""
         definition = self.resolve_definition().tag
         for method_tag in definition.findall(wadl_xpath('method')):
-            yield method_tag
+            if method_tag.attrib.get('href'):
+                yield self.application.doc.findall(wadl_xpath(
+                    "method[@id='{}']".format(method_tag.attrib.get('href')[1:])
+                ))[0]
+            else:
+                yield method_tag
 
 
 class Method(WADLBase):
