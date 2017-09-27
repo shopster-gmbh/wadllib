@@ -86,7 +86,7 @@ XML_SCHEMA_NS_URI = 'http://www.w3.org/2001/XMLSchema'
 
 def wadl_tag(tag_name):
     """Scope a tag name with the WADL namespace."""
-    return '{http://research.sun.com/wadl/2006/10}' + tag_name
+    return '{http://wadl.dev.java.net/2009/02}' + tag_name
 
 
 def wadl_xpath(tag_name):
